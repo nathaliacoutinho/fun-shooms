@@ -1,6 +1,6 @@
 class MushroomsController < ApplicationController
 
-  def show
-
+  def index
+    @mushrooms = Mushroom.all
   end
 end

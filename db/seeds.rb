@@ -13,6 +13,3 @@ csv.each do |row|
 end
 
 puts "There are now #{Mushroom.count} rows in the mushrooms table"
-
-
-

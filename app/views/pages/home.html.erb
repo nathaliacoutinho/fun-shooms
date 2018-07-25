@@ -1,2 +1,56 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<section class="container">
+  <header>
+    <h1>Mushrooms</h1>
+  </header>
+
+  <nav>
+    <%= form_with(model: @mushroom) do |f| %>
+      <ul class="filter">
+        <li class="filter-item">
+
+          <input type="checkbox" data-remote="true" data-url="/mushroomz" data-params="id=10" data-method="get">
+          <input type="checkbox" data-remote="true" data-url="/mushroomz" data-params="id=11" data-method="get">
+
+          <label id="1" for="">Poisinous</label>
+          <input name="1" type="checkbox" value="Poisinous">
+        </li>
+        <li class="filter-item">
+          <label id="2" for="">Two</label>
+          <input name="2" type="checkbox" value="2">
+        </li>
+        <li class="filter-item">
+          <label id="3" for="">Three</label>
+          <input name="3" type="checkbox" value="3">
+        </li>
+        <li class="filter-item">
+          <label id="4" for="">Four</label>
+          <input name="4" type="checkbox" value="4">
+        </li>
+        <li class="filter-item">
+          <label id="5" for="">Five</label>
+          <input name="5" type="checkbox" value="5">
+        </li>
+      </ul>
+    <% end %>
+  </nav>
+
+  <div class="result">
+    <span class="result-loader"></span>
+    <div class="result-content">
+      <% @mushrooms.each do |mushroom| %>
+      <ul>
+        <li>
+          <b>Mushroom id:</b> <%= mushroom.id %> <b>class:</b>
+          <% if %>
+          <% mushroom.edible == "e" %>
+          Edible
+          <% else %>
+          Poisonous
+          <% end %>
+        </li>
+      </ul>
+      <% end %>
+    </div>
+  </div>
+</section>
+

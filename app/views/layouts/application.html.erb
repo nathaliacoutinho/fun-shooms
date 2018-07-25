@@ -13,5 +13,39 @@
     <%= yield %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
+
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+
+    <script>
+      (function($) {
+        const resultContent = $('.result-content')
+        const resultLoader = $('.result-loader')
+        const filters = $('.filter input')
+
+        // Register events
+        filters.click(getResults)
+
+        // Event handlers
+        function getResults() {
+          const query = getAttributeFilterQuery()
+
+          console.log(`http://localhost:8000/mushrooms${query}`)
+        }
+
+
+        function getAttributeFilterQuery() {
+          const checkedFilters = []
+          $('.filter :checked').each(function() {
+            checkedFilters.push($(this).val())
+          })
+
+          return `?attributes=${checkedFilters.join('|')}`
+        }
+
+      })($)
+    </script>
   </body>
 </html>
