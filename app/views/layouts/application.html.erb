@@ -3,11 +3,14 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>TODO</title>
+    <title>FunShrooms</title>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Shadows+Into+Light" rel="stylesheet">
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
   </head>
   <body>
     <%= yield %>
@@ -19,33 +22,5 @@
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>
 
-    <script>
-      (function($) {
-        const resultContent = $('.result-content')
-        const resultLoader = $('.result-loader')
-        const filters = $('.filter input')
-
-        // Register events
-        filters.click(getResults)
-
-        // Event handlers
-        function getResults() {
-          const query = getAttributeFilterQuery()
-
-          console.log(`http://localhost:8000/mushrooms${query}`)
-        }
-
-
-        function getAttributeFilterQuery() {
-          const checkedFilters = []
-          $('.filter :checked').each(function() {
-            checkedFilters.push($(this).val())
-          })
-
-          return `?attributes=${checkedFilters.join('|')}`
-        }
-
-      })($)
-    </script>
   </body>
 </html>
