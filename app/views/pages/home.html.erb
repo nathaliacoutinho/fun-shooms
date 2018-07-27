@@ -1,37 +1,32 @@
-<div class="banner banner-home" style="background-image: linear-gradient(-225deg, #101010 0%, rgba(0,36,61,0.5) 0%), url('https://images.unsplash.com/photo-1505820013142-f86a3439c5b2?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=aa23c2d9d8db183be20f03764d6ee30f&auto=format&fit=crop&w=1051&q=80');">
+<div class="banner banner-home" style="background-image: linear-gradient(-225deg, #101010 0%, rgba(0,36,61,0.5) 0%), url('https://images.unsplash.com/photo-1512971121855-cb68882ab007?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a165b95d10f16776a2911cc34129e27b&auto=format&fit=crop&w=1050&q=80');">
   <div class="banner-content">
     <h4>Welcome to </h4>
     <h1>FUNSHROOMS</h1>
-    <p>Sort out Mushrooms</p>
+    <p>Because sorting Mushrooms is so much fun!</p>
   </div>
 </div>
 
   <section class="container">
-
-    <h1>Mushrooms</h1>
-
-
     <nav>
-      <ul class ="filter">
-       <li>
-        <%= check_box_tag 'edible', 'e', false, class: 'filter-item' %>
-        <%= label_tag :edible, "Edible" %>
-      </li>
-      <li>
-        <%= check_box_tag 'edible', 'p', false, class: 'filter-item' %>
-        <%= label_tag :edible, "Poisonous" %>
-      </li>
-      <li>
-        <%= check_box_tag 'cap_color', 'n', false, class: 'filter-item' %>
-        <%= label_tag :cap_color, "Brown" %>
-      </li>
-      <li>
-        <%= check_box_tag :all_mushrooms, "true", @all_mushrooms %>
-        <%= label_tag :all_mushrooms, "Show all" %>
-      </li>
-    </ul>
+      <div class="search-filters">
+        <div class="form-checkbox">
+          <div class ="filter">
+          <!--  <li> -->
+            <%= check_box_tag 'edible', 'e', false, class: 'filter-item' %>
+            <%= label_tag :edible, "Edible" %>
+            <!-- </li>
+            <li> -->
+              <%= check_box_tag 'poisonous', 'p', false, class: 'filter-item' %>
+              <%= label_tag :poisonous, "Poisonous" %>
+            <!-- </li>
+            <li> -->
+              <%= check_box_tag :all_mushrooms, "true", @all_mushrooms %>
+              <%= label_tag :all_mushrooms, "Show all" %>
+            <!-- </li>
+          </ul> -->
+        </div>
+      </div>
   </nav>
-
   <div class="result">
     <span class="result-loader"></span>
     <div class="result-content">
@@ -40,5 +35,43 @@
       </ul>
     </div>
   </div>
+
+
+  <div class="container-info">
+    <h1 class="text-center">Mushroom Samples</h1>
+  </div>
+
+  <div class="gray-wrapper">
+    <div class="container mushroom-container">
+      <div class="row">
+        <% @mushrooms.each do |mushroom| %>
+            <div class="col-xs-12 col-sm-4">
+              <div class="card">
+                <div class="card-header">
+                  <b>ID:</b> <%= mushroom.id %>
+                </div>
+                  <div class="card-main">
+                    <%= image_tag "mushroom.png", height: 50 %>
+                    <div class="main-description">
+                      <% if mushroom.edible == 'e' %>
+                        <b>Edible</b>
+                      <% else %>
+                        <b>Poisonous</b>
+                      <% end %>
+                    </div>
+                  </div>
+              </div>
+            </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+
 </section>
+<div class="footer">
+  <div class="footer-copyright">
+    This footer is made with <i class="fa fa-heart"></i> by Nathalia Coutinho
+  </div>
+</div>
 
