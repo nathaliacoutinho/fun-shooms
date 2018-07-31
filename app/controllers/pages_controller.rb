@@ -8,8 +8,6 @@ class PagesController < ApplicationController
   def filter
     # puts params[:filter].split("|")
 
-
-    @all_mushrooms = Mushroom.all.limit(20)
     @filtered_edible =  Mushroom.where(edible: params[:filter]).limit(40)
     respond_to do |f|
       f.js
