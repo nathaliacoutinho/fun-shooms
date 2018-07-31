@@ -10,10 +10,10 @@ class PagesController < ApplicationController
 
 
     @all_mushrooms = Mushroom.all.limit(20)
-    @filtered_edible =  Mushroom.where(edible: params[:filter]).limit(3)
+    @filtered_edible =  Mushroom.where(edible: params[:filter]).limit(40)
     respond_to do |f|
       f.js
-      f.json { render json: @filteredResults }
+      f.json { render json: @filtered_edible }
       f.html
     end
   end
