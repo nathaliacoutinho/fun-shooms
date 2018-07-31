@@ -1,22 +1,17 @@
-<div class="container mushroom-container">
-      <div class="row">
-            <div class="col-xs-12 col-sm-4">
-              <div class="card">
-                <div class="card-header">
-                  <b>ID:</b> <%= mushroom.id %>
-                </div>
-                  <div class="card-main">
-                    <%= image_tag "mushroom.png", height: 50 %>
-                    <div class="main-description">
-                      <% if mushroom.edible == 'e' %>
-                        <b>Edible</b>
-                      <% elsif mushroom.edible == 'p' %>
-                        <b>Poisonous</b>
-                      <% end %>
-                    </div>
-                  </div>
-              </div>
-            </div>
-      </div>
+<div class="col-xs-12 col-sm-4">
+  <div class="card">
+    <div class="card-header">
+      <b>ID:</b> <%= mushroom.id %>
     </div>
-<!-- <li>Id:<%= mushroom.id %>,<%= mushroom.edible %>, <%= mushroom.cap_color %> </li> -->
+      <div class="card-main">
+        <%= image_tag "mushroom.png", height: 50 %>
+        <div class="main-description">
+          <% if mushroom.edible == 'e' %>
+            <b>Edible</b>
+          <% elsif mushroom.edible == 'p' %>
+            <b>Poisonous</b>
+          <% end %>
+        </div>
+      </div>
+  </div>
+</div>
