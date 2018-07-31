@@ -6,9 +6,7 @@ class PagesController < ApplicationController
   end
 
   def filter
-    # puts params[:filter].split("|")
-
-    @filtered_edible =  Mushroom.where(edible: params[:filter]).limit(40)
+    @filtered_edible =  Mushroom.where(edible: params[:filter].split("|")).limit(6)
     respond_to do |f|
       f.js
       f.json { render json: @filtered_edible }
